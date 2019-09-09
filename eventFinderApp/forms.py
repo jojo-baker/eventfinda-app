@@ -1,5 +1,5 @@
 from django.forms import ModelForm
-from .models import Event, Category
+from .models import Event, Category, Account
 
 class EventForm(ModelForm):
     class Meta:
@@ -11,4 +11,13 @@ class EventForm(ModelForm):
             'start_time',
             'end_time',
             'categories',
+        ]
+
+class AccountForm(ModelForm):
+    class Meta:
+        model = Account
+        fields = [
+            'first_name',
+            'surname',
+            'email'
         ]
