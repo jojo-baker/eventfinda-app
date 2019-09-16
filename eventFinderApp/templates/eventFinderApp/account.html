@@ -2,6 +2,10 @@
 
 {% block content %}
 
-You should put the user's account information and upcoming events here.
+<h3>Profile</h3>
+<p>Username: {{ user.username }}</p>
+<p>First Name: {{ user.first_name }}</p>
+<p>Last Name: {{ user.last_name }}</p>
+<p>Email: {{ user.email }}</p>
 
 {% endblock %}

@@ -44,7 +44,8 @@ INSTALLED_APPS = [
 
 AUTH_USER_MODEL = 'users.CustomUser'
 
-LOGIN_REDIRECT_URL = '/event-finder'
+LOGIN_REDIRECT_URL = 'eventFinderApp:index'
+LOGOUT_REDIRECT_URL = 'eventFinderApp:index'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

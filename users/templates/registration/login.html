@@ -7,6 +7,8 @@
     {{ form|crispy }}
     <button type="submit" value="Update" class="btn btn-primary">Login</button>
   </form>
+  <br>
+  <p>Don't have an account? <a href ="{% url 'users:register' %}">Click here to register!</a></p>
 
 
 {% endblock %}
