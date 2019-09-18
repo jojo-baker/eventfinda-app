@@ -2,7 +2,13 @@
 
 {% block content %}
 
-   <a href="{% url 'eventFinderApp:add_event' %}"><button id="new-event">+ Create new event</button></a>
+    {% if request.user.is_authenticated %}
+    <!-- Do something for authenticated users. -->
+        <a href="{% url 'eventFinderApp:add_event' %}"><button id="new-event">+ Create new event</button></a>
+    {% else %}
+    <!-- Do something for anonymous users. -->
+        <a href="{% url 'login' %}"><button id="new-event">Login to create an event</button></a>
+    {% endif %}
     <h3>See what's on!</h3>
     {% if events_list %}
         {% for event in events_list %}
