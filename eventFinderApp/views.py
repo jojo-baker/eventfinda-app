@@ -4,6 +4,7 @@ from django.views import generic
 from django.shortcuts import render
 from .models import Event, Account
 from .forms import EventForm, AccountForm
+from django.contrib.auth.decorators import login_required
 
 class IndexView(generic.ListView):
     template_name = 'eventFinderApp/index.html'
@@ -26,7 +27,7 @@ def account(request):
     accountform = AccountForm()
     return render(request, 'eventFinderApp/account.html', {'accountform': accountform})
 
-
+@login_required(login_url='login')
 def add_event(request):
     # if this is a POST request we need to process the form data
     if request.method == 'POST':
@@ -41,6 +42,7 @@ def add_event(request):
             new_event.host = request.user
             # save the event
             new_event.save()
+            # this is working but apparently should save the event twice, without it it doesn't save the categories
             form.save()
             # return to the index
             return HttpResponseRedirect(reverse('eventFinderApp:index'))
