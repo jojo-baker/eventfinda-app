@@ -40,8 +40,6 @@ def add_event(request):
             new_event = form.save(commit=False)
             # add the host
             new_event.host = request.user
-            # save the event
-            new_event.save()
             # this is working but apparently should save the event twice, without it it doesn't save the categories
             form.save()
             # return to the index
