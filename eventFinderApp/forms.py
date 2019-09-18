@@ -4,14 +4,8 @@ from .models import Event, Category, Account
 class EventForm(ModelForm):
     class Meta:
         model = Event
-        fields = [
-            'title',
-            'location',
-            'venue',
-            'start_time',
-            'end_time',
-            'categories',
-        ]
+        exclude = ['host']
+
 
 class AccountForm(ModelForm):
     class Meta:

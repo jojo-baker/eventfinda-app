@@ -26,6 +26,7 @@ def account(request):
     accountform = AccountForm()
     return render(request, 'eventFinderApp/account.html', {'accountform': accountform})
 
+
 def add_event(request):
     # if this is a POST request we need to process the form data
     if request.method == 'POST':
@@ -34,13 +35,17 @@ def add_event(request):
         # check whether it's valid:
         if form.is_valid():
             # process the data in form.cleaned_data as required
-            # ...
-            # redirect to a new URL:
-            # return HttpResponseRedirect('/thanks/')
+            # get the new event from the form but don't save it yet
+            new_event = form.save(commit=False)
+            # add the host
+            new_event.host = request.user
+            # save the event
+            new_event.save()
             form.save()
+            # return to the index
             return HttpResponseRedirect(reverse('eventFinderApp:index'))
-        return render(request, 'eventFinderApp/add-event.html', {'eventform': form})
     # if a GET (or any other method) we'll create a blank form
     else:
-        eventform = EventForm()
-        return render(request, 'eventFinderApp/add-event.html', {'eventform': eventform})
+        form = EventForm()
+    # return the invalid or new form to the template
+    return render(request, 'eventFinderApp/add-event.html', {'eventform': form})

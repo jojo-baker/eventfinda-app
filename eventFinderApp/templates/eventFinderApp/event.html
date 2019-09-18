@@ -3,6 +3,7 @@
 {% block content %}
 
 <h2>{{ event.title }}</h2>
+<h3>Hosted by: {{ event.host.first_name }} {{ event.host.last_name }}</h3>
 
 <p>{{ event.location }}</p>
 <p>Venue: {{ event.venue }}</p>
