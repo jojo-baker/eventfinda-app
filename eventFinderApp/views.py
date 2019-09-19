@@ -14,14 +14,17 @@ class IndexView(generic.ListView):
         '''Return the events.'''
         return Event.objects.all()
 
+class AccountView(generic.ListView):
+    template_name = 'eventFinderApp/account.html'
+    context_object_name = 'events_list'
+
+    def get_queryset(self):
+        '''Return the events.'''
+        return Event.objects.filter(host = self.request.user)
 
 class EventView(generic.DetailView):
     model = Event
     template_name = 'eventFinderApp/event.html'
-
-class AccountView(generic.DetailView):
-    model = Account
-    template_name = 'eventFinderApp/account.html'
 
 def account(request):
     accountform = AccountForm()
