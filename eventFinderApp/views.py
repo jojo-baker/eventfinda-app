@@ -5,6 +5,7 @@ from django.shortcuts import render
 from .models import Event, Account
 from .forms import EventForm, AccountForm
 from django.contrib.auth.decorators import login_required
+from .filters import EventFilter
 
 class IndexView(generic.ListView):
     template_name = 'eventFinderApp/index.html'
@@ -13,6 +14,13 @@ class IndexView(generic.ListView):
     def get_queryset(self):
         '''Return the events.'''
         return Event.objects.all()
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['filter'] = EventFilter(self.request.GET, queryset=self.get_queryset())
+        return context
+
+
 
 class AccountView(generic.ListView):
     template_name = 'eventFinderApp/account.html'
@@ -52,3 +60,4 @@ def add_event(request):
         form = EventForm()
     # return the invalid or new form to the template
     return render(request, 'eventFinderApp/add-event.html', {'eventform': form})
+
