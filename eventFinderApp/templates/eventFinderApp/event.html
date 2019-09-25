@@ -14,4 +14,14 @@
 <p>Starts at: {{ event.start_time }}</p>
 <p>Ends at: {{ event.end_time }}</p>
 
+{% if user.is_authenticated %}
+   {% if user.pk == event.host.pk %}
+       <a href="{% url 'eventFinderApp:editevent' event.id %}"><button id="editevent">+ Edit details</button></a>
+   {% else %}
+       <p>Contact {{event.host.username}} if you would like to change event details</p>
+       {% endif %}
+{% else %}
+   <p><a href="{% url 'login' %}">Login to edit this event</a></p>
+{% endif %}
+
 {% endblock %}

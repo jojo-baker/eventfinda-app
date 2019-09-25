@@ -61,3 +61,8 @@ def add_event(request):
     # return the invalid or new form to the template
     return render(request, 'eventFinderApp/add-event.html', {'eventform': form})
 
+class EditEventView(generic.UpdateView):
+    model = Event
+    form_class = EventForm
+    success_url = reverse_lazy('eventFinderApp:account')
+    template_name = 'eventFinderApp/editevent.html'
