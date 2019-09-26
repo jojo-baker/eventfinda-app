@@ -1,16 +1,14 @@
 from django.forms import ModelForm
 from .models import Event, Category, Account
-from django import forms
-
-class DateInput(forms.DateInput):
-  input_type = 'date'
+from django.contrib.admin import widgets
 
 class EventForm(ModelForm):
     class Meta:
         model = Event
         exclude = ['host']
         widgets = {
-          'start_time': DateInput(),
+          'start_time': widgets.AdminSplitDateTime,
+          'end_time': widgets.AdminSplitDateTime,
         }
 
 
