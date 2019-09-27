@@ -9,6 +9,7 @@ class Event(models.Model):
     start_time = models.DateTimeField('start time and date')
     end_time = models.DateTimeField('end time and date')
     categories = models.ManyToManyField('Category', related_name='events')
+    event_description = models.TextField(max_length=600, default = 'Description')
     host = models.ForeignKey(User, related_name = 'hosting_events', on_delete=models.DO_NOTHING)
        
     def __str__(self):

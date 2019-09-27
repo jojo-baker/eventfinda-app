@@ -7,9 +7,10 @@ class EventForm(ModelForm):
         model = Event
         exclude = ['host']
         widgets = {
-          'start_time': widgets.AdminSplitDateTime,
-          'end_time': widgets.AdminSplitDateTime,
+            'start_time': widgets.AdminSplitDateTime,
+            'end_time': widgets.AdminSplitDateTime,
         }
+
 
 
 class AccountForm(ModelForm):
