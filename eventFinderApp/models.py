@@ -16,6 +16,7 @@ class Event(models.Model):
     def __str__(self):
         return self.title
 
+    @property
     def is_past_event(self):
         return self.start_time < datetime.now(tz = timezone.utc)   
 
