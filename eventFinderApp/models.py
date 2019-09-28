@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth import get_user_model
+from datetime import datetime, timezone
 User = get_user_model()
 
 class Event(models.Model):
@@ -14,6 +15,11 @@ class Event(models.Model):
        
     def __str__(self):
         return self.title
+
+    def is_past_event(self):
+        return self.start_time < datetime.now(tz = timezone.utc)   
+
+
 
 class Category(models.Model):
     name = models.CharField(max_length=50)

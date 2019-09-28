@@ -18,12 +18,33 @@
 </form>
 
 
-    {% if events_list %}
+    <!-- {% if events_list %}
         {% for event in filter.qs %}
             {% include "./detailsBox.html" with event=event %}
         {% endfor %}
     {% else %}
         <p>No events are available.</p>
-    {% endif %}
+    {% endif %} -->
+
+<h2> Current Events</h2>
+{% if events_list %}
+    {% for event in filter.qs %}
+        {% if event.is_past_event %}
+        {% else %}
+            {% include "./detailsBox.html" with event=event %}
+        {% endif %}
+    {% endfor %}
+{% endif %}
+
+<h2> Past Events</h2>
+
+{% if events_list %}
+    {% for event in filter.qs %}
+        {% if event.is_past_event %}
+            {% include "./detailsBox.html" with event=event %}
+        {% endif %}
+    {% endfor %}
+{% endif %}
+
 
 {% endblock %}

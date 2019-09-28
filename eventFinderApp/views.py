@@ -7,18 +7,21 @@ from .forms import EventForm, AccountForm
 from django.contrib.auth.decorators import login_required
 from .filters import EventFilter
 
+
 class IndexView(generic.ListView):
     template_name = 'eventFinderApp/index.html'
     context_object_name = 'events_list'
 
     def get_queryset(self):
         '''Return the events.'''
-        return Event.objects.all()
+        return Event.objects.all().order_by('start_time')
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['filter'] = EventFilter(self.request.GET, queryset=self.get_queryset())
         return context
+
+
 
 
 
@@ -28,7 +31,7 @@ class AccountView(generic.ListView):
 
     def get_queryset(self):
         '''Return the events.'''
-        return Event.objects.filter(host = self.request.user)
+        return Event.objects.filter(host = self.request.user).order_by('start_time')
 
 class EventView(generic.DetailView):
     model = Event
