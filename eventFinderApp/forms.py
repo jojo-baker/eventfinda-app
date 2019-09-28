@@ -10,7 +10,6 @@ class EventForm(ModelForm):
         model = Event
         exclude = ['host']
 
-
     def clean(self):
         cleaned_data = super().clean()
         start_time = cleaned_data.get('start_time')

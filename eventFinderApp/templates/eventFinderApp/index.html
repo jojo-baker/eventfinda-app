@@ -18,14 +18,6 @@
 </form>
 
 
-    <!-- {% if events_list %}
-        {% for event in filter.qs %}
-            {% include "./detailsBox.html" with event=event %}
-        {% endfor %}
-    {% else %}
-        <p>No events are available.</p>
-    {% endif %} -->
-
 <h2> Current Events</h2>
 {% if events_list %}
     {% for event in filter.qs %}

@@ -22,9 +22,6 @@ class IndexView(generic.ListView):
         return context
 
 
-
-
-
 class AccountView(generic.ListView):
     template_name = 'eventFinderApp/account.html'
     context_object_name = 'events_list'
