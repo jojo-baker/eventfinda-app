@@ -41,7 +41,6 @@ INSTALLED_APPS = [
     'users.apps.UsersConfig',
     'crispy_forms',
     'django_filters',
-    'bootstrapform',
     'rest_framework',
     'rest_framework.authtoken',
 ]
@@ -50,6 +49,19 @@ AUTH_USER_MODEL = 'users.CustomUser'
 
 LOGIN_REDIRECT_URL = 'eventFinderApp:index'
 LOGOUT_REDIRECT_URL = 'eventFinderApp:index'
+
+CONTENT_TYPES = ['image', 'video']
+# 1MB - 1048576
+# 2MB - 2097152
+# 2.5MB - 2621440
+# 5MB - 5242880
+# 10MB - 10485760
+# 20MB - 20971520
+# 50MB - 5242880
+# 100MB 104857600
+# 250MB - 214958080
+# 500MB - 429916160
+MAX_UPLOAD_SIZE = "2097152"
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% load bootstrap %}
+
 
 {% block content %}
 
@@ -12,8 +12,9 @@
     {% endif %}
 <h3>See what's on!</h3>
 
+{% load crispy_forms_tags %}
 <form method="GET">
-    {{ filter.form|bootstrap }}
+    {{ filter.form|crispy }}
     <button type="submit" class="btn btn-primary">Search</button>
 </form>
 
