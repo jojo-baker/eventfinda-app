@@ -1,12 +1,18 @@
-<div class="details-box">
-    <a href="{% url 'eventFinderApp:event' event.id %}">
-        <img src="{{ event.event_image.url }}">
-        <p>{{ event.title }}</p>
-        <div>
-        {% for cat in event.categories.all %}
-            <p> {{ cat.name }}</p>
-            {% endfor %}
-        </div>
-        <p>{{ event.start_time }}</p>
-    </a>
+<div class="details-box col-md-6 col-lg-4">
+    <div class="card h-100">
+        <a href="{% url 'eventFinderApp:event' event.id %}">
+            <img src="{{ event.event_image.url }}" class="card-img-top">
+            <div class="card-body">
+                    <h3 class="card-title">{{ event.title }}</h3>
+                    <div>
+                    {% for cat in event.categories.all %}
+                        <p> {{ cat.name }}</p>
+                        {% endfor %}
+                    </div>
+                    <p>{{ event.start_time }}</p>
+                    <p class="card-text">{{ event.short_description }}</p>
+                    <a href="{% url 'eventFinderApp:event' event.id %}"  class="btn btn-primary">Check it out</a>
+                </a>
+            </div> 
+    </div>
 </div>

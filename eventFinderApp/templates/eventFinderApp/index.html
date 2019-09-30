@@ -20,24 +20,30 @@
 
 
 <h2> Current Events</h2>
-{% if events_list %}
-    {% for event in filter.qs %}
-        {% if event.is_past_event %}
-        {% else %}
-            {% include "./detailsBox.html" with event=event %}
+<div class = "container">
+    <div class ="row">
+        {% if events_list %}
+            {% for event in filter.qs %}
+                {% if event.is_past_event %}
+                {% else %}
+                    {% include "./detailsBox.html" with event=event %}
+                {% endif %}
+            {% endfor %}
         {% endif %}
-    {% endfor %}
-{% endif %}
+    </div>
+</div>
 
 <h2> Past Events</h2>
-
-{% if events_list %}
-    {% for event in filter.qs %}
-        {% if event.is_past_event %}
-            {% include "./detailsBox.html" with event=event %}
+<div class = "container">
+    <div class ="row">
+        {% if events_list %}
+            {% for event in filter.qs %}
+                {% if event.is_past_event %}
+                    {% include "./detailsBox.html" with event=event %}
+                {% endif %}
+            {% endfor %}
         {% endif %}
-    {% endfor %}
-{% endif %}
-
+    </div>
+</div>
 
 {% endblock %}

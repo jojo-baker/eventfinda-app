@@ -48,19 +48,24 @@ a {
 }
 
 .details-box {
-    border: 1px solid #ff006f;
-    border-radius: 5px;
-    margin: 10px 0;
-    padding: 10px;
+margin-bottom: 20px;
 }
+
+.details-box img {
+    /* width: 100%; */
+    height: 15vw;
+    object-fit: cover;
+}
+@media (max-width:900px) {
+    .details-box img {
+        height: 40vw;
+    }
+  }
 
 .details-box a {
     color: #000 !important;
     text-decoration: none;
-    display: flex;
-    justify-content: space-between;
 }
 
 .details-box a:hover {
-    text-decoration: underline;
 }

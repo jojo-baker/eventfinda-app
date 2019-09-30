@@ -15,14 +15,17 @@
 {% endif %}
 
 <h3>Your events:</h3>
-    {% if events_list %}
-        {% for event in events_list %}
-            {% include "./detailsBox.html" with event=event %}
-        {% endfor %}
-    {% else %}
-        <p>You're not hosting any.</p>
-    {% endif %}
-
+<div class = "container">
+    <div class ="row">
+        {% if events_list %}
+            {% for event in events_list %}
+                {% include "./detailsBox.html" with event=event %}
+            {% endfor %}
+        {% else %}
+            <p>You're not hosting any.</p>
+        {% endif %}
+    </div>
+</div>
 
 
 {% endblock %}
