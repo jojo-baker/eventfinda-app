@@ -15,16 +15,35 @@
 {% endif %}
 
 <h3>Your events:</h3>
+
 <div class = "container">
-    <div class ="row">
-        {% if events_list %}
-            {% for event in events_list %}
-                {% include "./detailsBox.html" with event=event %}
-            {% endfor %}
-        {% else %}
-            <p>You're not hosting any.</p>
-        {% endif %}
+        <div class ="row">
+            {% if events_list %}
+                {% for event in events_list %}
+                    {% if event.is_past_event %}
+                    {% else %}
+                        {% include "./detailsBox.html" with event=event %}
+                    {% endif %}
+                {% endfor %}
+            {% else %}
+                <p>You're not hosting any events.</p>
+            {% endif %}
+        </div>
     </div>
+
+<h3>Your past events:</h3>
+<div class = "container">
+        <div class ="row">
+            {% if events_list %}
+                {% for event in events_list %}
+                    {% if event.is_past_event %}
+                        {% include "./detailsBox.html" with event=event %}
+                    {% endif %}
+                {% endfor %}
+            {% else %}
+                <p>You don't have any past events.</p>
+            {% endif %}
+        </div>
 </div>
 
 
