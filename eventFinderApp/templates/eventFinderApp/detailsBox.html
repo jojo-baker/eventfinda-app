@@ -1,5 +1,6 @@
 <div class="details-box">
     <a href="{% url 'eventFinderApp:event' event.id %}">
+        <img src="{{ event.event_image.url }}">
         <p>{{ event.title }}</p>
         <div>
         {% for cat in event.categories.all %}

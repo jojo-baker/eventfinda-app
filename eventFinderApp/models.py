@@ -12,7 +12,8 @@ class Event(models.Model):
     categories = models.ManyToManyField('Category', related_name='events')
     event_description = models.TextField(max_length=600, default = 'Description')
     host = models.ForeignKey(User, related_name = 'hosting_events', on_delete=models.DO_NOTHING)
-       
+    event_image = models.ImageField(upload_to = '')
+
     def __str__(self):
         return self.title
 

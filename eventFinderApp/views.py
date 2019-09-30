@@ -6,6 +6,7 @@ from .models import Event, Account
 from .forms import EventForm, AccountForm
 from django.contrib.auth.decorators import login_required
 from .filters import EventFilter
+from django.core.files.storage import FileSystemStorage
 
 
 class IndexView(generic.ListView):
@@ -43,7 +44,7 @@ def add_event(request):
     # if this is a POST request we need to process the form data
     if request.method == 'POST':
         # create a form instance and populate it with data from the request:
-        form = EventForm(request.POST)
+        form = EventForm(request.POST, request.FILES)
         # check whether it's valid:
         if form.is_valid():
             # process the data in form.cleaned_data as required

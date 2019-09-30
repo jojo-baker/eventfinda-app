@@ -20,6 +20,8 @@ from rest_framework import routers
 from eventFinderApp import viewsets
 from rest_framework.authtoken import views
 from users import viewsets as UserViewsets
+from django.conf import settings
+from django.conf.urls.static import static
 
 
 
@@ -36,3 +38,6 @@ urlpatterns = [
     path(r'api-auth-token/', views.obtain_auth_token),
     path('jsi18n', JavaScriptCatalog.as_view(), name='javascript-catalog'),
 ]
+
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
