@@ -1,27 +1,46 @@
 html {
-    font-family: 'Manjari', sans-serif;
+    /* font-family: 'Mansalva', cursive; */
 }
 
 body {
     margin: 50px;
+    /* margin: 0 auto; */
+    background-image: url("/static/piggy-bg.jpg");
+    background-size: 200px;
 }
 
 h1 {
     font-size: 3rem;
-    color: #ff006f;
-    margin: 0;
+    padding: 20px 0px;
 }
-
 h2 {
-    margin: 0;
+    font-size: 2.5rem;
+    padding: 20px 0px;
+}
+h3 {
+    font-size: 2rem;
+    padding: 20px 0px;
+}
+h4 {
+    font-size: 0.5rem;
+    padding: 20px 0px;
+}
+h5 {
+    font-size: 3rem;
+    padding: 20px 0px;
+}
+h6 {
+    font-size: 3rem;
+    padding: 20px 0px;
 }
 
 header {
-    display: flex;
+    /* display: flex;
     justify-content: space-between;
     align-items: center;
     border-bottom: 1px solid #000;
-    margin-bottom: 20px;
+    margin-bottom: 20px; */
+    margin: -50px -50px 0px -50px;
 }
 
 nav a {
@@ -68,4 +87,67 @@ margin-bottom: 20px;
 }
 
 .details-box a:hover {
+}
+
+.details-box img {
+    -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
+    filter: grayscale(100%);
+    transition: .5s ease;
+}
+.details-box img:hover {
+    -webkit-filter: grayscale(0%); /* Safari 6.0 - 9.0 */
+    filter: grayscale(0%);
+}
+
+.btn-danger {
+    background-color: #facf48;
+    border-color: #facf48;
+    color: #343a40;
+}
+.btn-danger:hover {
+    background-color: #f1b6b8;
+    border-color: #f1b6b8;
+    color: #343a40;
+}
+
+.dropdown-item {
+    width: 90%;
+    margin-bottom: 10px;
+}
+
+.navbar {
+    margin-bottom: 30px;
+}
+
+.card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.event-filter-index {
+    background-color: #343a40;
+    padding: 15px 30px;
+    text-align: center;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    width: 100%;
+    border-radius: 25px;
+}
+.event-filter-buttons {
+    justify-content: center;
+    display: flex;
+    align-items: center;
+}
+.event-filter-index .btn-primary {
+    margin: 10px;
+}
+.event-filter-index h3 {
+    color: white;
+    margin-bottom: 5px;
+}
+
+.current-events-container {
+    background-color: white;
+    padding: 15px 30px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-radius: 25px;
+    margin-top: 30px;
 }

@@ -1,10 +1,15 @@
-<nav class="navbar">
-    <p><a href="{% url 'eventFinderApp:index' %}">Home</a></p>
-    {% if user.is_authenticated %}
-    <p><a href="{% url 'eventFinderApp:account' %}">My Account</a></p>
-    <p>Hi {{ user.username }}</p>
-    <p><a href="{% url 'logout' %}">Logout</a></p>
-{% else %}
-    <p><a href="{% url 'login' %}">Login</a></p>
-{% endif %}
-</nav>
+<nav class="navbar navbar-dark bg-dark">
+        <a href="{% url 'eventFinderApp:index' %}"><img src="/static/froogle rev.png" class="navbar-brand" href="{% url 'eventFinderApp:index' %}" style="max-width: 200px;"></a>
+            {% if user.is_authenticated %}
+                <div class="btn-group">
+                        <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Hi, {{ user.first_name }}</button>
+                        <div class="dropdown-menu dropdown-menu-right">
+                                <a class="dropdown-item btn btn-danger" href="{% url 'eventFinderApp:add_event' %}">+ Add an Event</a>
+                                <a class="dropdown-item" href="{% url 'eventFinderApp:account' %}">My Account</a>
+                                <a class="dropdown-item" href="{% url 'logout' %}">Logout</a>
+                        </div>
+                </div>
+            {% else %}
+            <a href="{% url 'login' %}"><button type="button" class="btn btn-danger" aria-haspopup="false" aria-expanded="false">Login/Register</button></a>
+            {% endif %}
+    </nav>
