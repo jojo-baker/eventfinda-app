@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
 {% block content %}
-
+<img src="{{ event.event_image.url }}">
 <h2>{{ event.title }}</h2>
 <h3>Hosted by: {{ event.host.first_name }} {{ event.host.last_name }}</h3>
 
@@ -13,6 +13,8 @@
         {% endfor %}
 <p>Starts at: {{ event.start_time }}</p>
 <p>Ends at: {{ event.end_time }}</p>
+<p>Description: {{ event.event_description }}</p>
+<p>Short description: {{ event.short_description }}</p>
 
 {% if user.is_authenticated %}
    {% if user.pk == event.host.pk %}

@@ -1,27 +1,52 @@
 html {
-    font-family: 'Manjari', sans-serif;
+    /* font-family: 'Mansalva', cursive; */
 }
 
 body {
     margin: 50px;
+    /* margin: 0 auto; */
+    background-image: url("/static/piggy-bg.jpg");
+    background-size: 200px;
+}
+.body-container {
+    background-color: white;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    padding-left: 50px;
+    padding-right: 50px;
 }
 
 h1 {
     font-size: 3rem;
-    color: #ff006f;
-    margin: 0;
+    padding: 20px 0px;
 }
-
 h2 {
-    margin: 0;
+    font-size: 2.5rem;
+    padding: 20px 0px;
+}
+h3 {
+    font-size: 2rem;
+    padding: 20px 0px;
+}
+h4 {
+    font-size: 0.5rem;
+    padding: 20px 0px;
+}
+h5 {
+    font-size: 3rem;
+    padding: 20px 0px;
+}
+h6 {
+    font-size: 3rem;
+    padding: 20px 0px;
 }
 
 header {
-    display: flex;
+    /* display: flex;
     justify-content: space-between;
     align-items: center;
     border-bottom: 1px solid #000;
-    margin-bottom: 20px;
+    margin-bottom: 20px; */
+    margin: -50px -50px 0px -50px;
 }
 
 nav a {
@@ -48,19 +73,76 @@ a {
 }
 
 .details-box {
-    border: 1px solid #ff006f;
-    border-radius: 5px;
-    margin: 10px 0;
-    padding: 10px;
+margin-bottom: 20px;
 }
+
+.details-box img {
+    /* width: 100%; */
+    height: 15vw;
+    object-fit: cover;
+}
+@media (max-width:900px) {
+    .details-box img {
+        height: 40vw;
+    }
+  }
 
 .details-box a {
     color: #000 !important;
     text-decoration: none;
-    display: flex;
-    justify-content: space-between;
 }
 
 .details-box a:hover {
-    text-decoration: underline;
+}
+
+.details-box img {
+    -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
+    filter: grayscale(100%);
+    transition: .5s ease;
+}
+.details-box img:hover {
+    -webkit-filter: grayscale(0%); /* Safari 6.0 - 9.0 */
+    filter: grayscale(0%);
+}
+
+.btn-danger {
+    background-color: #facf48;
+    border-color: #facf48;
+    color: #343a40;
+}
+.btn-danger:hover {
+    background-color: #f1b6b8;
+    border-color: #f1b6b8;
+    color: #343a40;
+}
+
+.dropdown-item {
+    width: 90%;
+    margin-bottom: 10px;
+}
+
+.navbar {
+    margin-bottom: 30px;
+}
+
+.card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.event-filter-index {
+    background-color: #f1b6b8;
+    padding: 15px 30px;
+    text-align: center;
+    margin: -30px -50px 30px -50px;
+}
+.event-filter-buttons {
+    justify-content: center;
+    display: flex;
+    align-items: center;
+}
+.event-filter-index .btn-primary {
+    margin: 10px;
+}
+.event-filter-index h3 {
+    margin-bottom: 5px;
 }

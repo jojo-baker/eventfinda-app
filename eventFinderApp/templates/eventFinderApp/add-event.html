@@ -5,7 +5,8 @@
 <h2>Add an Event</h2>
 
 {% load crispy_forms_tags %}
-<form action="" method="post">
+<form action="" method="post" enctype="multipart/form-data">
+    {{ eventform.media }}
     {% csrf_token %}
     {{ eventform|crispy }}
     <input type="submit" value="Submit">

@@ -1,29 +1,55 @@
 {% extends "base.html" %}
-{% load bootstrap %}
+
 
 {% block content %}
 
-    {% if request.user.is_authenticated %}
-    <!-- Do something for authenticated users. -->
-        <a href="{% url 'eventFinderApp:add_event' %}"><button id="new-event">+ Create new event</button></a>
-    {% else %}
-    <!-- Do something for anonymous users. -->
-        <a href="{% url 'login' %}"><button id="new-event">Login to create an event</button></a>
-    {% endif %}
-<h3>See what's on!</h3>
+<div class = "event-filter-index">
+        <h3>After a cheap date? Just froogle it.</h3>
+  <div class = "event-filter-buttons">
+        <!-- Button trigger modal -->
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                Filter Events
+              </button>      
+          <!-- Modal -->
+          <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">Filter Events</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                    <form method="GET">
+                        {{ filter.form }}
+                        {{ form.media }}
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                  <button type="submit" class="btn btn-primary">Search</button>
+                </form>
+                </div>
+              </div>
+            </div>
+          </div>
+          <a href="{% url 'eventFinderApp:index' %}" class="btn btn-primary">Clear Filter</a>
 
-<form method="GET">
-    {{ filter.form|bootstrap }}
-    <button type="submit" class="btn btn-primary">Search</button>
-</form>
+  </div>
+</div>
 
-
-    {% if events_list %}
-        {% for event in filter.qs %}
-            {% include "./detailsBox.html" with event=event %}
-        {% endfor %}
-    {% else %}
-        <p>No events are available.</p>
-    {% endif %}
+      <h2>What's on</h2>
+      <div class = "container">
+          <div class ="row">
+              {% if events_list %}
+                  {% for event in filter.qs %}
+                      {% if event.is_past_event %}
+                      {% else %}
+                          {% include "./detailsBox.html" with event=event %}
+                      {% endif %}
+                  {% endfor %}
+              {% endif %}
+          </div>
+      </div>
 
 {% endblock %}
