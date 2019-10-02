@@ -8,6 +8,12 @@ body {
     background-image: url("/static/piggy-bg.jpg");
     background-size: 200px;
 }
+.body-container {
+    background-color: white;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    padding-left: 50px;
+    padding-right: 50px;
+}
 
 h1 {
     font-size: 3rem;
@@ -124,12 +130,10 @@ margin-bottom: 20px;
 }
 
 .event-filter-index {
-    background-color: #343a40;
+    background-color: #f1b6b8;
     padding: 15px 30px;
     text-align: center;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    width: 100%;
-    border-radius: 25px;
+    margin: -30px -50px 30px -50px;
 }
 .event-filter-buttons {
     justify-content: center;
@@ -140,14 +144,5 @@ margin-bottom: 20px;
     margin: 10px;
 }
 .event-filter-index h3 {
-    color: white;
     margin-bottom: 5px;
-}
-
-.current-events-container {
-    background-color: white;
-    padding: 15px 30px;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    border-radius: 25px;
-    margin-top: 30px;
 }
