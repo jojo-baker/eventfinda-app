@@ -1,9 +1,9 @@
 {% extends "base.html" %}
 
 {% block content %}
-<img src="{{ event.event_image.url }}">
+<img src="{{ event.event_image.url }}" class="event-page-image">
 <h2>{{ event.title }}</h2>
-<h3>Hosted by: {{ event.host.first_name }} {{ event.host.last_name }}</h3>
+<h6><span class=""><b>HOSTED BY:</b></span> {{ event.host.first_name }} {{ event.host.last_name }}</h3>
 
 <p>{{ event.location }}</p>
 <p>Venue: {{ event.venue }}</p>
@@ -14,7 +14,7 @@
 <p>Starts at: {{ event.start_time }}</p>
 <p>Ends at: {{ event.end_time }}</p>
 <p>Description: {{ event.event_description }}</p>
-<p>Short description: {{ event.short_description }}</p>
+<!-- <p>Short description: {{ event.short_description }}</p> -->
 
 {% if user.is_authenticated %}
    {% if user.pk == event.host.pk %}
