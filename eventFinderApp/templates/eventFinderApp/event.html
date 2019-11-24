@@ -1,29 +1,35 @@
 {% extends "base.html" %}
 
 {% block content %}
-<img src="{{ event.event_image.url }}" class="event-page-image">
-<h2>{{ event.title }}</h2>
-<h6><span class=""><b>HOSTED BY:</b></span> {{ event.host.first_name }} {{ event.host.last_name }}</h3>
+<div class="page-container">
+    <div class="sm-page-container">
+        <img src="{{ event.event_image.url }}" class="event-page-image">
+        <h2 class="profile-titles">{{ event.title }}</h2>
+        <hr>
+        <div class="category-container">
+                {% for cat in event.categories.all %}
+                    <p class="categories"> {{ cat.name }}</p>
+                    {% endfor %}
+                </div>
+        <h6><span class=""><b>HOSTED BY:</b></span> {{ event.host.first_name }} {{ event.host.last_name }}</h3>
 
-<p>{{ event.location }}</p>
-<p>Venue: {{ event.venue }}</p>
-<p>Event Categories:</p>
-    {% for cat in event.categories.all %}
-        <p> {{ cat.name }}</p>
-        {% endfor %}
-<p>Starts at: {{ event.start_time }}</p>
-<p>Ends at: {{ event.end_time }}</p>
-<p>Description: {{ event.event_description }}</p>
-<!-- <p>Short description: {{ event.short_description }}</p> -->
+        <p><strong>Location:</strong><br> {{ event.location }}</p>
+        <p><strong>Venue:</strong><br> {{ event.venue }}</p>
+        <p><strong>Starts:</strong><br> {{ event.start_time }}</p>
+        <p><strong>Ends:</strong><br> {{ event.end_time }}</p>
+        <p><strong>Description:</strong><br> {{ event.event_description }}</p>
+        <!-- <p>Short description: {{ event.short_description }}</p> -->
 
-{% if user.is_authenticated %}
-   {% if user.pk == event.host.pk %}
-       <a href="{% url 'eventFinderApp:editevent' event.id %}"><button id="editevent">+ Edit details</button></a>
-   {% else %}
-       <p>Contact {{event.host.username}} if you would like to change event details</p>
-       {% endif %}
-{% else %}
-   <p><a href="{% url 'login' %}">Login to edit this event</a></p>
-{% endif %}
+        {% if user.is_authenticated %}
+        {% if user.pk == event.host.pk %}
+            <a href="{% url 'eventFinderApp:editevent' event.id %}"><button id="editevent">Edit details</button></a>
+        {% else %}
+            <p>Contact {{event.host.username}} if you would like to change event details.</p>
+            {% endif %}
+        {% else %}
+        <!-- <p><a href="{% url 'login' %}">If this is your event, login to edit it.</a></p> -->
+        {% endif %}
+        </div>
+</div>
 
 {% endblock %}

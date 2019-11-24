@@ -2,14 +2,19 @@
 
 {% block content %}
 
-<h2>Add an Event</h2>
+<div class="page-container">
+    <div class="sm-page-container">
+        <h2 class="profile-titles">Add an Event</h2>
+        <hr>
 
-{% load crispy_forms_tags %}
-<form action="" method="post" enctype="multipart/form-data">
-    {{ eventform.media }}
-    {% csrf_token %}
-    {{ eventform|crispy }}
-    <input type="submit" value="Submit">
-</form>
+        {% load crispy_forms_tags %}
+        <form class="add-event-form" action="" method="post" enctype="multipart/form-data">
+            {{ eventform.media }}
+            {% csrf_token %}
+            {{ eventform|crispy }}
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+</div>
 
 {% endblock %}

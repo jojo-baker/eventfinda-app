@@ -1,14 +1,17 @@
 {% extends "base.html" %}
 {% block content %}
 
-{% load crispy_forms_tags %}
-<form method="post" novalidate>
-    {% csrf_token %}
-    {{ form|crispy }}
-    <button type="submit" value="Update" class="btn btn-primary">Login</button>
-  </form>
-  <br>
-  <p>Don't have an account? <a href ="{% url 'users:register' %}">Click here to register!</a></p>
-
+<div class="page-container">
+  <div class="sm-page-container">
+    {% load crispy_forms_tags %}
+    <form method="post" novalidate>
+        {% csrf_token %}
+        {{ form|crispy }}
+        <button type="submit" value="Update" class="btn btn-primary">Login</button>
+      </form>
+      <br>
+      <p>Don't have an account? <a href ="{% url 'users:register' %}">Click here to register!</a></p>
+  </div>
+</div>
 
 {% endblock %}

@@ -1,12 +1,16 @@
 {% extends "base.html" %}
 {% block content %}
 
-{% load crispy_forms_tags %}
+<div class="page-container">
+    <div class="sm-page-container">
+      {% load crispy_forms_tags %}
 
-<form method="post" novalidate>
-    {% csrf_token %}
-    {{ form|crispy }}
-    <button type="submit" value="Update" class="btn btn-primary">Register</button>
-  </form>
+      <form method="post" novalidate>
+          {% csrf_token %}
+          {{ form|crispy }}
+          <button type="submit" value="Update" class="btn btn-primary">Register</button>
+        </form>
+    </div>
+</div>
 
 {% endblock %}

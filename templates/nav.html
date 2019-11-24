@@ -4,12 +4,12 @@
                 <div class="btn-group">
                         <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Hi, {{ user.first_name }}</button>
                         <div class="dropdown-menu dropdown-menu-right">
-                                <a class="dropdown-item btn btn-danger" href="{% url 'eventFinderApp:add_event' %}">+ Add an Event</a>
+                                <a class="dropdown-item btn highlight-btn" href="{% url 'eventFinderApp:add_event' %}">+ Add an Event</a>
                                 <a class="dropdown-item" href="{% url 'eventFinderApp:account' %}">My Account</a>
                                 <a class="dropdown-item" href="{% url 'logout' %}">Logout</a>
                         </div>
                 </div>
             {% else %}
-            <a href="{% url 'login' %}"><button type="button" class="btn btn-danger" aria-haspopup="false" aria-expanded="false">Login/Register</button></a>
+            <a href="{% url 'login' %}"><button type="button" class="btn highlight-btn" aria-haspopup="false" aria-expanded="false">LOGIN/REGISTER</button></a>
             {% endif %}
     </nav>
