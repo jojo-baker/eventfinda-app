@@ -27,9 +27,10 @@
           </button>
         </div>
         <div class="modal-body filter-pop-up">
+          {% load crispy_forms_tags %}
           <form method="GET">
             {{ filter.form }}
-            {{ form.media }}
+            {{ form.media.as_p }}
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
